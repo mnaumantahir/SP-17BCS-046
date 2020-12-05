@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nouman/Hardlevel.dart';
 import 'package:nouman/HomePage.dart';
 import 'package:contactus/contactus.dart';
+import 'dart:io';
 // import 'package:quizzler/retry.dart';
 // import 'quiz_brain.dart';
 import 'dart:ui';
@@ -74,7 +75,21 @@ class QuizApp extends StatelessWidget {
             title: Text('Dice Game',
               style: TextStyle(
                 color: Colors.red,
+
               ),),
+            actions: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {exit(0);},
+                    child: Icon(
+                      Icons.close,
+                      size: 26.0,
+                    ),
+                  )
+              ),
+
+            ],
             bottom: TabBar(
               indicatorColor: Colors.yellow,
               labelColor: Colors.yellow,
