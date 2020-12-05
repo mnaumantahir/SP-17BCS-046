@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nouman/Hardlevel.dart';
 import 'package:nouman/HomePage.dart';
+import 'package:contactus/contactus.dart';
 // import 'package:quizzler/retry.dart';
 // import 'quiz_brain.dart';
 import 'dart:ui';
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     Timer(
         Duration(seconds: 6),
-            () => Navigator.pushReplacement(
+            () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => QuizApp())));
   }
 
@@ -92,8 +93,8 @@ class QuizApp extends StatelessWidget {
                   children: [
                     RaisedButton(
                       onPressed: ()  {
-                        Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (context) => Hardlevel()));
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => hardlevel()));
                       },
                       textColor: Colors.black,
                       padding: const EdgeInsets.all(10),
@@ -116,7 +117,7 @@ class QuizApp extends StatelessWidget {
                     // SizedBox(height: 2,),
                     RaisedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context, MaterialPageRoute(builder: (context) => HomePage()));
                       },
                       textColor: Colors.black,
@@ -138,9 +139,22 @@ class QuizApp extends StatelessWidget {
                     ),
                   ],),
               ),
-              Text('Muhammad Nouman Tahir (Sp-17 BCS 046)',style: TextStyle(
-                color: Colors.red,fontSize: 25
-              ),),
+          Column(
+            children: [
+              ContactUs(
+                logo: AssetImage('images/dice.jpg'),
+                email: 'm.naumantahir8@gmail.com',
+                companyName: 'Muhammad Nouman Tahir',
+                phoneNumber: '',
+                githubUserName: '',
+                tagLine: 'Game Developer',
+              ),
+            ],
+          )
+              // Text('Muhammad Nouman Tahir (Sp-17 BCS 046)',style: TextStyle(
+              //   color: Colors.red,fontSize: 25
+              // ),
+              // ),
             ],
           ),
         ),
