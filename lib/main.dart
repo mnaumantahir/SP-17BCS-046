@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:nouman/HomePage.dart';
 // import 'package:quizzler/retry.dart';
 // import 'quiz_brain.dart';
 import 'dart:ui';
@@ -14,7 +15,7 @@ class SplashScreen extends StatelessWidget {
     return MaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
@@ -36,15 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
         Duration(seconds: 6),
             () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => QuizApp())));
-  } //<- Creates an object that fetches an image.
-  // var image = new Image(
-  //     image: AssetImage(
-  //         'asset/quiz.png'),
-  //     height:300);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        color: Colors.cyan,
         child: Column(
           children: <Widget>[
             Image(
@@ -52,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'images/dice.jpg'),
                 height:300),
             Text("Muhammad Nouman Tahir",style:TextStyle(fontSize: 25)),
+            Text("Sp-17 BCS 046",style:TextStyle(fontSize: 25)),
             SizedBox(height: 10,),
             CircularProgressIndicator()
           ],
@@ -59,19 +58,87 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
 class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
-        body: SafeArea(
-            child: Text("Wait for another work")
-          // Padding(
-          //   // padding: EdgeInsets.symmetric(horizontal: 10.0),
-          //   child: QuizPage(),
-          // ),
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.lightGreen, // status bar color
+            brightness: Brightness.dark,
+            title: Text('Dice Game',
+              style: TextStyle(
+                color: Colors.red,
+              ),),
+            bottom: TabBar(
+              indicatorColor: Colors.yellow,
+              labelColor: Colors.yellow,
+              unselectedLabelColor: Colors.yellow,
+              tabs: [
+                Tab(text: "Game"),
+                Tab(text: "Contact Us"),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RaisedButton(
+                      onPressed: () {},
+                      textColor: Colors.black,
+                      padding: const EdgeInsets.all(10),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                              Colors.red,
+                              Colors.redAccent,
+                              Colors.deepOrange,
+                            ],
+                          ),
+                        ),
+                        padding: const EdgeInsets.all(10.0),
+                        child:
+                        const Text('Hard Level', style: TextStyle(fontSize: 20)),
+                      ),
+                    ),
+                    SizedBox(height: 5,),
+                    // SizedBox(height: 2,),
+                    RaisedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context, MaterialPageRoute(builder: (context) => HomePage()));
+                      },
+                      textColor: Colors.black,
+                      padding: const EdgeInsets.all(10),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                              Colors.red,
+                              Colors.redAccent,
+                              Colors.deepOrange,
+                            ],
+                          ),
+                        ),
+                        padding: const EdgeInsets.all(10.0),
+                        child:
+                        const Text('Simple Level', style: TextStyle(fontSize: 20)),
+                      ),
+                    ),
+                  ],),
+              ),
+              Text('Contact Page (Later will be change)',style: TextStyle(
+                color: Colors.red,
+              ),),
+            ],
+          ),
         ),
       ),
     );
