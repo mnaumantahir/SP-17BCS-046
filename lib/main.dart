@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:nouman/Hardlevel.dart';
 import 'package:nouman/HomePage.dart';
 // import 'package:quizzler/retry.dart';
 // import 'quiz_brain.dart';
@@ -90,7 +91,10 @@ class QuizApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RaisedButton(
-                      onPressed: () {},
+                      onPressed: ()  {
+                        Navigator.pushReplacement(
+                            context, MaterialPageRoute(builder: (context) => Hardlevel()));
+                      },
                       textColor: Colors.black,
                       padding: const EdgeInsets.all(10),
                       child: Container(
@@ -134,8 +138,8 @@ class QuizApp extends StatelessWidget {
                     ),
                   ],),
               ),
-              Text('Contact Page (Later will be change)',style: TextStyle(
-                color: Colors.red,
+              Text('Muhammad Nouman Tahir (Sp-17 BCS 046)',style: TextStyle(
+                color: Colors.red,fontSize: 25
               ),),
             ],
           ),
