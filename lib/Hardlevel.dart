@@ -40,7 +40,7 @@ class _hard_levelScreenState extends State<hardlevel>
       }
       temp.add(
           ListTile(
-              title:  Text(options[q].toString(),style: TextStyle(fontSize: 22,color: Colors.white),),
+              title:  Text(options[q].toString(),style: TextStyle(fontSize: 22,color: Colors.red),),
               leading: Transform.scale(
                 scale: 2.0,
                 child:    Radio(
@@ -216,7 +216,7 @@ class _hard_levelScreenState extends State<hardlevel>
                             ?Image(
                           height: 200 - (_controller.value * 200),
                           image: AssetImage(
-                              'images/one-png-$leftDice.png'),
+                              'images/dice-png-$leftDice.png'),
                         )
                             : Column(children: _getList(leftDice),)
                     ),
